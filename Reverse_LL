@@ -1,0 +1,20 @@
+    DLLNode* reverseDLL(DLLNode* head) {
+        // Your code here
+        DLLNode* temp = head;
+        stack<int> s;
+        
+        while(temp != NULL){
+            s.push(temp->data);
+            temp = temp->next;
+        }
+        
+        temp = head;
+        
+        while(temp != NULL){
+            temp->data = s.top();
+            s.pop();
+            temp = temp->next;
+        }
+        
+        return head;
+    }
